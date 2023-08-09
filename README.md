@@ -38,13 +38,13 @@ Determine the run time for this query.
 #### Cache your temporary table home_sales.
 
 Using the cached data, run the query that filters out the view ratings with an average price of greater than or equal to $350,000. Determine the runtime and compare it to uncached runtime.
-* Cached runtime:
+* Cached temporary table runtime:
 
 ![](Images/Cached.png)
 
 #### Partition by the "date_built" field on the formatted parquet home sales data and create a temporary table for the parquet data.
 Run the query that filters out the view ratings with an average price of greater than or equal to $350,000. Determine the runtime and compare it to uncached runtime.
-* Parquet data runtime:
+* Parquet temporary table runtime:
 
 ![](Images/Parquet.png)
 
@@ -53,7 +53,7 @@ Run the query that filters out the view ratings with an average price of greater
 
 
 ## Conclusion: 
-Using SparkSQL with a temporary table had the longest query runtime for this data at .221 seconds. Using the cached temporary table was faster at .158 seconds. Partitioning by the "date_built" field on the formatted parquet home sales data and then creating a temporary table for the parquet data produced the fastest query time of .130 seconds.
+Using SparkSQL with a temporary table had the longest query runtime for this data at .221 seconds. Using the cached temporary table was faster at .158 seconds. Partitioning by the "date_built" field on the formatted parquet home sales data and then creating a temporary table for the parquet data produced the fastest query time of .130 seconds. With a dataset of this smaller size the runtimes don't make much of a difference and SparkSQL with the temporary table works great. However, with larger data it would save time and money to cache and partition the data first.
 
 
 
